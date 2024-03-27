@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wo rein?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 50px;
+    }
+    h1 {
+        margin-bottom: 20px;
+    }
+    #stockDisplay {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    #generateButton {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<h1>Wo rein?</h1>
+<div id="stockDisplay">Unten Klicken.</div>
+<button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
+<script>
+function generateRandomStock() {
+    const stocks = [
+    // DAX
+    "Adidas AG",
+    "Allianz SE",
+    "BASF SE",
+    "Bayer AG",
+    "Beiersdorf AG",
+    "BMW AG",
+    "Continental AG",
+    "Covestro AG",
+    "Daimler AG",
+    "Delivery Hero SE",
+    "Deutsche Bank AG",
+    "Deutsche Börse AG",
+    "Deutsche Post AG",
+    "Deutsche Telekom AG",
+    "Deutsche Wohnen SE",
+    "E.ON SE",
+    "Fresenius Medical Care AG & Co. KGaA",
+    "Fresenius SE & Co. KGaA",
+    "HeidelbergCement AG",
+    "Henkel AG & Co. KGaA",
+    "Infineon Technologies AG",
+    "Linde plc",
+    "Merck KGaA",
+    "MTU Aero Engines AG",
+    "Munich Re",
+    "RWE AG",
+    "SAP SE",
+    "Siemens AG",
+    "Volkswagen AG",
+    "Vonovia SE",
+    // Weltweit
+    "Apple Inc.",
+    "Alphabet Inc.",
+    "Microsoft Corporation",
+    "Amazon.com Inc.",
+    "Tesla Inc.",
+    "Meta Platforms Inc.",
+    "Netflix Inc.",
+    "NVIDIA Corporation",
+    "PayPal Holdings Inc.",
+    "Intel Corporation",
+    "Alibaba Group Holding Limited",
+    "Johnson & Johnson",
+    "Visa Inc.",
+    "Walmart Inc.",
+    "Berkshire Hathaway Inc.",
+    "JPMorgan Chase & Co.",
+    "Bank of America Corporation",
+    "Procter & Gamble Company",
+    "The Home Depot Inc.",
+    "Cisco Systems Inc.",
+    "AT&T Inc.",
+    "Exxon Mobil Corporation",
+    "Chevron Corporation",
+    "Walt Disney Company",
+    "Johnson & Johnson",
+    "Pfizer Inc.",
+    "Merck & Co. Inc."
+];
+    const randomIndex = Math.floor(Math.random() * stocks.length);
+    const randomStock = stocks[randomIndex];
+    document.getElementById("stockDisplay").textContent = "Aktie:" + randomStock;
+}
+    <h2>(Keine Anlageempfehlung)</h2>
+</script>
+</body>
+</html>
