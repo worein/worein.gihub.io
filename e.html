@@ -14,6 +14,7 @@
         background-size: cover;
     }
     .container {
+        position: relative;
         max-width: 600px;
         margin: 0 auto;
         padding: 50px 20px;
@@ -43,6 +44,30 @@
     #generateButton:hover {
         background-color: #0056b3;
     }
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #f00;
+        animation: confetti 1s ease-in-out infinite;
+    }
+    @keyframes confetti {
+        0% {
+            transform: translateY(0) rotateZ(0deg);
+        }
+        25% {
+            transform: translateY(-200px) rotateZ(45deg);
+        }
+        50% {
+            transform: translateY(-400px) rotateZ(90deg);
+        }
+        75% {
+            transform: translateY(-600px) rotateZ(135deg);
+        }
+        100% {
+            transform: translateY(-800px) rotateZ(180deg);
+        }
+    }
 </style>
 </head>
 <body>
@@ -50,6 +75,7 @@
     <h1>Wo rein?</h1>
     <div id="stockDisplay">Unten klicken.</div>
     <button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
+    <div id="confettiContainer"></div>
 </div>
 <script>
 function generateRandomStock() {
@@ -117,6 +143,16 @@ function generateRandomStock() {
     const randomIndex = Math.floor(Math.random() * stocks.length);
     const randomStock = stocks[randomIndex];
     document.getElementById("stockDisplay").textContent = "Aktie: " + randomStock;
+
+    const confettiContainer = document.getElementById("confettiContainer");
+    const confetti = document.createElement("div");
+    confetti.classList.add("confetti");
+    confetti.style.left = Math.random() * 100 + "%";
+    confettiContainer.appendChild(confetti);
+
+    setTimeout(() => {
+        confetti.remove();
+    }, 1000);
 }
 </script>
 </body>
