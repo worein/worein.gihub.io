@@ -10,26 +10,16 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        background-color: #f4f4f4;
+        background: url('https://i.imgur.com/lDEdC0b.jpg') no-repeat center center fixed;
+        background-size: cover;
     }
     .container {
         max-width: 600px;
         margin: 0 auto;
         padding: 50px 20px;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.8);
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        animation: fadeIn 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
     h1 {
         margin-bottom: 20px;
@@ -58,7 +48,7 @@
 <body>
 <div class="container">
     <h1>Wo rein?</h1>
-    <div id="stockDisplay" style="opacity: 0;">Unten klicken.</div>
+    <div id="stockDisplay">Unten klicken.</div>
     <button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
 </div>
 <script>
@@ -126,12 +116,7 @@ function generateRandomStock() {
 ];
     const randomIndex = Math.floor(Math.random() * stocks.length);
     const randomStock = stocks[randomIndex];
-    const stockDisplay = document.getElementById("stockDisplay");
-    stockDisplay.style.opacity = 0;
-    setTimeout(function() {
-        stockDisplay.textContent = "Aktie: " + randomStock;
-        stockDisplay.style.opacity = 1;
-    }, 500); // Adjust the delay as needed
+    document.getElementById("stockDisplay").textContent = "Aktie: " + randomStock;
 }
 </script>
 </body>
