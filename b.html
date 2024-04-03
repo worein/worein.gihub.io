@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wo rein?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2019%2F09%2F900606-2016-lamborghini-huracan-cars-blue-spyder.jpg&f=1&nofb=1&ipt=55dd04079c28d8a1cdee34eda5c35e2ff602cb3589cf3c0eb4c1d5e693b865dc&ipo=images') no-repeat center center fixed;
+        background-size: cover;
+    }
+    .container {
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 50px 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    #stockDisplay {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #666;
+    }
+    #generateButton {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    #generateButton:hover {
+        background-color: #0056b3;
+    }
+    .stock-arrow {
+        position: absolute;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 20px solid green;
+        animation: stockAnimation 1s ease-in-out;
+    }
+    @keyframes stockAnimation {
+        0% {
+            opacity: 0;
+            transform: translateY(0) scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: translateY(-20px) scale(1.2);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-40px) scale(1.4);
+        }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Wo rein?</h1>
+    <div id="stockDisplay">Unten klicken.</div>
+    <button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
+</div>
+<div class="stock-arrow"></div>
+<script>
+function generateRandomStock() {
+    const stocks = [
+    // DAX
+    "Adidas AG",
+    "Allianz SE",
+    "BASF SE",
+    "Bayer AG",
+    "Beiersdorf AG",
+    "BMW AG",
+    "Continental AG",
+    "Covestro AG",
+    "Daimler AG",
+    "Delivery Hero SE",
+    "Deutsche Bank AG",
+    "Deutsche Börse AG",
+    "Deutsche Post AG",
+    "Deutsche Telekom AG",
+    "Deutsche Wohnen SE",
+    "E.ON SE",
+    "Fresenius Medical Care AG & Co. KGaA",
+    "Fresenius SE & Co. KGaA",
+    "HeidelbergCement AG",
+    "Henkel AG & Co. KGaA",
+    "Infineon Technologies AG",
+    "Linde plc",
+    "Merck KGaA",
+    "MTU Aero Engines AG",
+    "Munich Re",
+    "RWE AG",
+    "SAP SE",
+    "Siemens AG",
+    "Volkswagen AG",
+    "Vonovia SE",
+    // Weltweit
+    "Apple Inc.",
+    "Alphabet Inc.",
+    "Microsoft Corporation",
+    "Amazon.com Inc.",
+    "Tesla Inc.",
+    "Meta Platforms Inc.",
+    "Netflix Inc.",
+    "NVIDIA Corporation",
+    "PayPal Holdings Inc.",
+    "Intel Corporation",
+    "Alibaba Group Holding Limited",
+    "Johnson & Johnson",
+    "Visa Inc.",
+    "Walmart Inc.",
+    "Berkshire Hathaway Inc.",
+    "JPMorgan Chase & Co.",
+    "Bank of America Corporation",
+    "Procter & Gamble Company",
+    "The Home Depot Inc.",
+    "Cisco Systems Inc.",
+    "AT&T Inc.",
+    "Exxon Mobil Corporation",
+    "Chevron Corporation",
+    "Walt Disney Company",
+    "Johnson & Johnson",
+    "Pfizer Inc.",
+    "Merck & Co. Inc."
+];
+    const randomIndex = Math.floor(Math.random() * stocks.length);
+    const randomStock = stocks[randomIndex];
+    document.getElementById("stockDisplay").textContent = "Aktie: " + randomStock;
+
+    const stockArrow = document.querySelector(".stock-arrow");
+    stockArrow.style.display = "block";
+    setTimeout(() => {
+        stockArrow.style.display = "none";
+    }, 1000);
+}
+</script>
+</body>
+</html>
