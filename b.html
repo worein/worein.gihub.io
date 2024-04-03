@@ -32,6 +32,8 @@
         color: #666;
     }
     #generateButton {
+        position: relative; /* Neu hinzugefügter CSS */
+        z-index: 1; /* Neu hinzugefügter CSS */
         padding: 10px 20px;
         font-size: 18px;
         cursor: pointer;
@@ -77,8 +79,8 @@
     <h1>Wo rein?</h1>
     <div id="stockDisplay">Unten klicken.</div>
     <button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
+    <div class="stock-arrow"></div> <!-- Neu hinzugefügtes Element -->
 </div>
-<div class="stock-arrow"></div>
 <script>
 function generateRandomStock() {
     const stocks = [
