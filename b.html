@@ -10,7 +10,7 @@
         text-align: center;
         margin: 0;
         padding: 0;
-        background: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2019%2F09%2F900606-2016-lamborghini-huracan-cars-blue-spyder.jpg&f=1&nofb=1&ipt=55dd04079c28d8a1cdee34eda5c35e2ff602cb3589cf3c0eb4c1d5e693b865dc&ipo=images') no-repeat center center fixed;
+         background: url('blue.jpg') no-repeat center center fixed;
         background-size: cover;
     }
     .container {
@@ -32,8 +32,8 @@
         color: #666;
     }
     #generateButton {
-        position: relative; /* Neu hinzugefügter CSS */
-        z-index: 1; /* Neu hinzugefügter CSS */
+        position: relative;
+        z-index: 1;
         padding: 10px 20px;
         font-size: 18px;
         cursor: pointer;
@@ -48,7 +48,7 @@
     }
     .stock-arrow {
         position: absolute;
-        bottom: calc(100% + 10px); /* Neu hinzugefügter CSS */
+        bottom: calc(100% + 10px);
         left: 50%;
         transform: translateX(-50%);
         width: 0;
@@ -79,80 +79,84 @@
     <h1>Wo rein?</h1>
     <div id="stockDisplay">Unten klicken.</div>
     <button id="generateButton" onclick="generateRandomStock()">Hier rein</button>
-    <div class="stock-arrow"></div> <!-- Neu hinzugefügtes Element -->
+    <div class="stock-arrow"></div>
 </div>
 <script>
 function generateRandomStock() {
-    const stocks = [
-    // DAX
-    "Adidas AG",
-    "Allianz SE",
-    "BASF SE",
-    "Bayer AG",
-    "Beiersdorf AG",
-    "BMW AG",
-    "Continental AG",
-    "Covestro AG",
-    "Daimler AG",
-    "Delivery Hero SE",
-    "Deutsche Bank AG",
-    "Deutsche Börse AG",
-    "Deutsche Post AG",
-    "Deutsche Telekom AG",
-    "Deutsche Wohnen SE",
-    "E.ON SE",
-    "Fresenius Medical Care AG & Co. KGaA",
-    "Fresenius SE & Co. KGaA",
-    "HeidelbergCement AG",
-    "Henkel AG & Co. KGaA",
-    "Infineon Technologies AG",
-    "Linde plc",
-    "Merck KGaA",
-    "MTU Aero Engines AG",
-    "Munich Re",
-    "RWE AG",
-    "SAP SE",
-    "Siemens AG",
-    "Volkswagen AG",
-    "Vonovia SE",
-    // Weltweit
-    "Apple Inc.",
-    "Alphabet Inc.",
-    "Microsoft Corporation",
-    "Amazon.com Inc.",
-    "Tesla Inc.",
-    "Meta Platforms Inc.",
-    "Netflix Inc.",
-    "NVIDIA Corporation",
-    "PayPal Holdings Inc.",
-    "Intel Corporation",
-    "Alibaba Group Holding Limited",
-    "Johnson & Johnson",
-    "Visa Inc.",
-    "Walmart Inc.",
-    "Berkshire Hathaway Inc.",
-    "JPMorgan Chase & Co.",
-    "Bank of America Corporation",
-    "Procter & Gamble Company",
-    "The Home Depot Inc.",
-    "Cisco Systems Inc.",
-    "AT&T Inc.",
-    "Exxon Mobil Corporation",
-    "Chevron Corporation",
-    "Walt Disney Company",
-    "Johnson & Johnson",
-    "Pfizer Inc.",
-    "Merck & Co. Inc."
-];
-    const randomIndex = Math.floor(Math.random() * stocks.length);
-    const randomStock = stocks[randomIndex];
-    document.getElementById("stockDisplay").textContent = "Aktie: " + randomStock;
-
-    const stockArrow = document.querySelector(".stock-arrow");
-    stockArrow.style.display = "block";
+    document.getElementById("generateButton").disabled = true; // Disable the button to prevent multiple clicks
     setTimeout(() => {
-        stockArrow.style.display = "none";
-    }, 1000);
+        const stocks = [
+        // DAX
+        "Adidas AG",
+        "Allianz SE",
+        "BASF SE",
+        "Bayer AG",
+        "Beiersdorf AG",
+        "BMW AG",
+        "Continental AG",
+        "Covestro AG",
+        "Daimler AG",
+        "Delivery Hero SE",
+        "Deutsche Bank AG",
+        "Deutsche Börse AG",
+        "Deutsche Post AG",
+        "Deutsche Telekom AG",
+        "Deutsche Wohnen SE",
+        "E.ON SE",
+        "Fresenius Medical Care AG & Co. KGaA",
+        "Fresenius SE & Co. KGaA",
+        "HeidelbergCement AG",
+        "Henkel AG & Co. KGaA",
+        "Infineon Technologies AG",
+        "Linde plc",
+        "Merck KGaA",
+        "MTU Aero Engines AG",
+        "Munich Re",
+        "RWE AG",
+        "SAP SE",
+        "Siemens AG",
+        "Volkswagen AG",
+        "Vonovia SE",
+        // Weltweit
+        "Apple Inc.",
+        "Alphabet Inc.",
+        "Microsoft Corporation",
+        "Amazon.com Inc.",
+        "Tesla Inc.",
+        "Meta Platforms Inc.",
+        "Netflix Inc.",
+        "NVIDIA Corporation",
+        "PayPal Holdings Inc.",
+        "Intel Corporation",
+        "Alibaba Group Holding Limited",
+        "Johnson & Johnson",
+        "Visa Inc.",
+        "Walmart Inc.",
+        "Berkshire Hathaway Inc.",
+        "JPMorgan Chase & Co.",
+        "Bank of America Corporation",
+        "Procter & Gamble Company",
+        "The Home Depot Inc.",
+        "Cisco Systems Inc.",
+        "AT&T Inc.",
+        "Exxon Mobil Corporation",
+        "Chevron Corporation",
+        "Walt Disney Company",
+        "Johnson & Johnson",
+        "Pfizer Inc.",
+        "Merck & Co. Inc."
+    ];
+        const randomIndex = Math.floor(Math.random() * stocks.length);
+        const randomStock = stocks[randomIndex];
+        document.getElementById("stockDisplay").textContent = "Aktie: " + randomStock;
+
+        const stockArrow = document.querySelector(".stock-arrow");
+        stockArrow.style.display = "block";
+        setTimeout(() => {
+            stockArrow.style.display = "none";
+            document.getElementById("generateButton").disabled = false; // Re-enable the button
+        }, 1000);
+    }, 1000); // Wait for 1 second before generating random stock
 }
 </script>
 </body>
