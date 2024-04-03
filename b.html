@@ -10,7 +10,7 @@
         text-align: center;
         margin: 0;
         padding: 0;
-         background: url('blue.png') no-repeat center center fixed;
+        background: url('blue.png') no-repeat center center fixed;
         background-size: cover;
     }
     .container {
@@ -84,6 +84,10 @@
 <script>
 function generateRandomStock() {
     document.getElementById("generateButton").disabled = true; // Disable the button to prevent multiple clicks
+    
+    // Clear previous stock display
+    document.getElementById("stockDisplay").textContent = "";
+
     setTimeout(() => {
         const stocks = [
         // DAX
